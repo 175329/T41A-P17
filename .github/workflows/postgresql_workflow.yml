@@ -129,12 +129,12 @@ jobs:
         FROM usuarios
         UNION ALL
         SELECT 
-          'Tabla productos_jsonb' as tipo, 
+          'Tabla catalogo_ropa' as tipo, 
           COUNT(*) as registros 
-        FROM productos_jsonb
+        FROM catalogo_ropa
         UNION ALL  
         SELECT 
-          'Tabla productos_hstore' as tipo, 
+          'Tabla propiedades_hstore' as tipo, 
           COUNT(*) as registros 
         FROM productos_hstore;
         "
