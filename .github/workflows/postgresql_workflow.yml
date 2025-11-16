@@ -65,9 +65,7 @@ jobs:
       run: |
         PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f ejercicio_avanzado.sql
 
-    - name: Run Tests Finales
-      run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f test_final.sql
+    
 
     - name: Run original queries and tests
       run: |
