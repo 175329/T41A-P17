@@ -51,21 +51,23 @@ jobs:
 
     - name: Run Ejercicios Recomendados (JSONB)
       run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f ejercicio_recomendado.sql
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 05_Ejercicios_recomendados.sql
 
     - name: Run Ejercicios Básicos HSTORE
       run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f ejercicio_basico.sql
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 06_Ejercicios_basicos_HSTORE.sql
 
     - name: Run Ejercicios Intermedios HSTORE
       run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f ejercicio_intermedio.sql
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 07_Ejercicios_intermedios_HSTORE.sql
 
     - name: Run Ejercicios Avanzados HSTORE
       run: |
-        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f ejercicio_avanzado.sql
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 08_Ejercicios_avanzados_HSTORE.sql
 
-    
+    - name: Run Tests Finales
+      run: |
+        PGPASSWORD=postgres psql -h localhost -U postgres -d test_db -f 09_Tests_finales_completos.sql
 
     - name: Run original queries and tests
       run: |
@@ -129,12 +131,12 @@ jobs:
         FROM usuarios
         UNION ALL
         SELECT 
-          'Tabla catalogo_ropa' as tipo, 
+          'Tabla productos_jsonb' as tipo, 
           COUNT(*) as registros 
-        FROM catalogo_ropa
+        FROM productos_jsonb
         UNION ALL  
         SELECT 
-          'Tabla propiedades_hstore' as tipo, 
+          'Tabla productos_hstore' as tipo, 
           COUNT(*) as registros 
-        FROM propiedades_hstore;
+        FROM productos_hstore;
         "
